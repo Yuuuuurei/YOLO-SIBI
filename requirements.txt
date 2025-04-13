@@ -1,0 +1,5 @@
+﻿efficientnet-pytorch==0.7.1
+kaggle==1.7.4.2
+kagglehub==0.3.11
+scikit-learn==1.6.1
+ultralytics==8.3.107
