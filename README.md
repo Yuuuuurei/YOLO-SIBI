@@ -7,10 +7,10 @@ Proyek ini merupakan penerapan _YOLO_ (You Only Look Once) untuk deteksi gerakan
 - Deteksi real-time gerakan jari/tangan untuk SIBI menggunakan webcam.
 - Menggunakan YOLOv8 untuk deteksi bounding box tangan.
 - Tersedia 4 model _image classification_ yang dapat dipilih:
-  - **DenseNet121** (📈 _89.882%_ akurasi) – ⭐ _Recommended_
-  - EfficientNet-B0 (89.089%)
-  - ResNet18 (89.228%)
-  - MobileNetV3 Small (85.459%)
+  - **DenseNet121** – ⭐ _Recommended_
+  - EfficientNet-B0
+  - ResNet18
+  - MobileNetV3 Small
 - Opsi untuk training ulang model dengan parameter yang dapat dikonfigurasi.
 - Jalankan sistem secara langsung tanpa perlu training ulang.
 
@@ -18,6 +18,11 @@ Proyek ini merupakan penerapan _YOLO_ (You Only Look Once) untuk deteksi gerakan
 
 Dataset diambil dari Kaggle:  
 📎 [SIBI Dataset by Alvin Bintang](https://www.kaggle.com/datasets/alvinbintang/sibi-dataset?utm_medium=social&utm_campaign=kaggle-dataset-share&utm_source=twitter)
+
+## 📦 Model YOLO (Bounding Box)
+
+Model YOLO yang digunakan untuk mendeteksi tangan:  
+🔗 [`hand_yolov8s.pt`](https://huggingface.co/xingren23/comfyflow-models/blob/976de8449674de379b02c144d0b3cfa2b61482f2/ultralytics/bbox/hand_yolov8s.pt)
 
 ## 💻 Requirement
 
@@ -64,11 +69,6 @@ Dataset diambil dari Kaggle:
    - Pilih model yang sudah disediakan dalam repository
    - Membuka kamera dan mulai deteksi real-time
    - Tekan `q` untuk keluar
-
-## 📦 Model YOLO (Bounding Box)
-
-Model YOLO yang digunakan untuk mendeteksi tangan:  
-🔗 [`hand_yolov8s.pt`](https://huggingface.co/xingren23/comfyflow-models/blob/976de8449674de379b02c144d0b3cfa2b61482f2/ultralytics/bbox/hand_yolov8s.pt)
 
 ---
 
