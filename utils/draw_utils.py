@@ -16,6 +16,9 @@ def draw_boxes(frame, x1, y1, x2, y2, label, conf):
 
     # Tampilkan label dan confidence di bounding box
     label_text = f'{label} ({conf*100:.1f}%)'
-    cv2.putText(frame, label_text, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 0, 0), 2)
+    # Draw outline (white or black stroke)
+    cv2.putText(frame, label_text, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 0), 3, cv2.LINE_AA)
+    cv2.putText(frame, label_text, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (200, 255, 0), 1, cv2.LINE_AA)
+
 
     return frame
