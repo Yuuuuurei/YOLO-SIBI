@@ -40,6 +40,9 @@ hand_detector = YOLO('yolo_hand_detection/weights/hand_yolov8s.pt')
 # Buka webcam
 cap = cv2.VideoCapture(0)
 
+captured_letters = []
+latest_letter = None  # Untuk menyimpan huruf terakhir yang terdeteksi
+
 while True:
     ret, frame = cap.read()
     if not ret:
@@ -54,12 +57,25 @@ while True:
         cropped_hand = frame[y1:y2, x1:x2]
 
         predicted_letter = predict_letter(model, cropped_hand, CLASSES)
+        latest_letter = predicted_letter
         frame = draw_boxes(frame, x1, y1, x2, y2, predicted_letter, conf)
+
+        # Tampilkan huruf yang sudah diketik
+    typed_text = ''.join(captured_letters)
+    cv2.putText(frame, f"Teks: {typed_text}", (10, 30),
+                cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
     cv2.imshow('Sign Language Detector', frame)
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    key = cv2.waitKey(1) & 0xFF
+    if key == ord('q'):
         break
+    elif key == ord('w'):  # Jika tombol spasi ditekan
+        if latest_letter:
+            captured_letters.append(latest_letter)
+            print(f"Ditambahkan: {latest_letter}")
+            with open("output.txt", "a") as f:
+                f.write(latest_letter)
 
 cap.release()
 cv2.destroyAllWindows()
