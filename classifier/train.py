@@ -43,7 +43,6 @@ print(f"🧠 Training on: {device} | Model: {model_name}")
 # 🧽 Transformasi
 # =============================
 train_transforms = transforms.Compose([
-    transforms.RandomResizedCrop(224),
     transforms.RandomHorizontalFlip(),
     transforms.ColorJitter(0.2, 0.2, 0.2),
     transforms.ToTensor(),
@@ -52,7 +51,6 @@ train_transforms = transforms.Compose([
 ])
 
 val_transforms = transforms.Compose([
-    transforms.Resize((224, 224)),
     transforms.ToTensor(),
     transforms.Normalize([0.485, 0.456, 0.406],
                          [0.229, 0.224, 0.225])
