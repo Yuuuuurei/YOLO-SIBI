@@ -76,6 +76,18 @@ while True:
             print(f"Ditambahkan: {latest_letter}")
             with open("output.txt", "a") as f:
                 f.write(latest_letter)
+    elif key == ord('s'):  # Tambahkan spasi
+        captured_letters.append(' ')
+        print("Ditambahkan: [spasi]")
+        with open("output.txt", "a") as f:
+            f.write(' ')
+    elif key == ord('b'):  # Hapus huruf terakhir
+        if captured_letters:
+            removed = captured_letters.pop()
+            print(f"Dihapus: {removed}")
+            # Perbarui file output.txt
+            with open("output.txt", "w") as f:
+                f.write(''.join(captured_letters))
 
 cap.release()
 cv2.destroyAllWindows()
